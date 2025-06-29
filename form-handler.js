@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // IMPORTANT: Replace this with your actual Formspree endpoint URL
   // Go to https://formspree.io, create a form, and get your unique endpoint
-  const FORMSPREE_ENDPOINT = "YOUR_FORMSPREE_ENDPOINT_HERE";
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xyzjogbo";
 
   // Show/hide CampusConnect section based on purpose selection
   purposeSelect.addEventListener("change", function () {
