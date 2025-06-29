@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileName = document.getElementById("file-name");
   const removeFileBtn = document.getElementById("remove-file");
 
-  // IMPORTANT: Replace this with your actual Formspree endpoint URL
-  // Go to https://formspree.io, create a form, and get your unique endpoint
+  // Formspree endpoint - configured and ready to use
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xyzjogbo";
 
   // Show/hide CampusConnect section based on purpose selection
@@ -131,13 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // Check if Formspree endpoint is configured
-    if (FORMSPREE_ENDPOINT === "YOUR_FORMSPREE_ENDPOINT_HERE") {
-      status.innerHTML = "Please configure your Formspree endpoint in form-handler.js";
-      status.classList.add("text-red-400");
-      return;
-    }
-
     const requiredFields = form.querySelectorAll("[required]");
     let isValid = true;
     requiredFields.forEach((field) => {
@@ -150,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    status.innerHTML = "Please wait...";
+    status.innerHTML = "Sending message...";
     status.classList.remove("text-red-400", "text-green-400");
 
     const formData = new FormData(form);
@@ -186,13 +178,14 @@ document.addEventListener("DOMContentLoaded", function () {
         status.classList.add("text-red-400");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Form submission error:", err);
       status.innerHTML = "Unable to submit form. Please check your internet connection and try again.";
       status.classList.add("text-red-400");
     }
 
     setTimeout(() => {
       status.innerHTML = "";
+      status.classList.remove("text-red-400", "text-green-400");
     }, 4000);
   });
 
