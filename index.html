@@ -65,25 +65,6 @@
       transition: all 0.3s ease;
     }
 
-    .file-upload-area {
-      border: 2px dashed #334155;
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .file-upload-area:hover {
-      border-color: #67e8f9;
-      background-color: rgba(103, 232, 249, 0.05);
-    }
-
-    .file-upload-area.dragover {
-      border-color: #67e8f9;
-      background-color: rgba(103, 232, 249, 0.1);
-    }
-
     .slide-down {
       animation: slideDown 0.3s ease-out;
     }
@@ -133,7 +114,10 @@
           <h2 class="text-3xl font-bold text-white mb-2">Connect with Mahesh</h2>
           <p class="mb-8 text-slate-400">Please fill out the form below to get in touch.</p>
 
-          <form id="contact-form" method="POST" novalidate enctype="multipart/form-data">
+          <form id="contact-form" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="80bfa2f2-c07b-4351-85e2-9b7848065061" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               <div>
                 <label for="fullName" class="block text-sm font-medium mb-2">Full Name</label>
@@ -226,21 +210,17 @@
               </div>
 
               <div class="mb-6">
-                <label class="block text-sm font-medium mb-2">Upload Resume <span class="text-slate-500">(PDF, DOC, DOCX - Max 5MB)</span></label>
-                <div class="file-upload-area" id="file-upload-area">
-                  <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" class="hidden" />
-                  <div id="upload-content">
-                    <i data-feather="upload-cloud" class="w-8 h-8 text-slate-400 mx-auto mb-2"></i>
-                    <p class="text-slate-400 text-sm">Click to upload or drag and drop your resume</p>
-                    <p class="text-slate-500 text-xs mt-1">PDF, DOC, DOCX up to 5MB</p>
+                <div class="bg-slate-700/50 border border-slate-600 rounded-lg p-4">
+                  <div class="flex items-center mb-2">
+                    <i data-feather="info" class="w-4 h-4 text-cyan-400 mr-2"></i>
+                    <span class="text-sm font-medium text-cyan-400">Resume Submission</span>
                   </div>
-                  <div id="file-info" class="hidden">
-                    <i data-feather="file-text" class="w-6 h-6 text-cyan-400 mx-auto mb-2"></i>
-                    <p class="text-cyan-400 text-sm" id="file-name"></p>
-                    <button type="button" id="remove-file" class="text-red-400 text-xs mt-1 hover:text-red-300">Remove file</button>
-                  </div>
+                  <p class="text-slate-400 text-sm">
+                    Please email your resume directly to 
+                    <a href="mailto:mahesh@example.com" class="text-cyan-400 hover:text-cyan-300 underline">mahesh@example.com</a> 
+                    with the subject line "CampusConnect Application - [Your Name]"
+                  </p>
                 </div>
-                <p class="text-red-400 text-sm mt-1 hidden">Please upload your resume.</p>
               </div>
             </div>
 
