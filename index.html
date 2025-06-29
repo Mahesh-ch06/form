@@ -98,14 +98,6 @@
         transform: translateY(0);
       }
     }
-
-    .setup-notice {
-      background-color: #1e293b;
-      border: 1px solid #f59e0b;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
   </style>
 </head>
 <body class="text-slate-300 antialiased">
@@ -140,20 +132,6 @@
         <div id="form-container">
           <h2 class="text-3xl font-bold text-white mb-2">Connect with Mahesh</h2>
           <p class="mb-8 text-slate-400">Please fill out the form below to get in touch.</p>
-
-          <!-- Setup Notice -->
-          <div class="setup-notice">
-            <div class="flex items-center mb-2">
-              <i data-feather="info" class="w-4 h-4 text-yellow-500 mr-2"></i>
-              <span class="text-yellow-500 font-medium text-sm">Setup Required</span>
-            </div>
-            <p class="text-slate-300 text-sm">
-              To enable file uploads, please:
-              <br>1. Create a free account at <a href="https://formspree.io" class="text-cyan-400 hover:text-cyan-300" target="_blank">Formspree.io</a>
-              <br>2. Create a new form and copy the form ID
-              <br>3. Replace "YOUR_FORM_ID" in the JavaScript code with your actual form ID
-            </p>
-          </div>
 
           <form id="contact-form" method="POST" novalidate enctype="multipart/form-data">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

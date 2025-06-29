@@ -145,8 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     try {
-      // Using Formspree endpoint - replace YOUR_FORM_ID with actual Formspree form ID
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      // Using your Formspree endpoint
+      const response = await fetch("https://formspree.io/f/xyzjogbo", {
         method: "POST",
         body: formData,
         headers: {
