@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileName = document.getElementById("file-name");
   const removeFileBtn = document.getElementById("remove-file");
 
+  // IMPORTANT: Replace this with your actual Formspree endpoint URL
+  // Go to https://formspree.io, create a form, and get your unique endpoint
+  const FORMSPREE_ENDPOINT = "YOUR_FORMSPREE_ENDPOINT_HERE";
+
   // Show/hide CampusConnect section based on purpose selection
   purposeSelect.addEventListener("change", function () {
     if (this.value === "CampusConnect") {
@@ -127,6 +131,13 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    // Check if Formspree endpoint is configured
+    if (FORMSPREE_ENDPOINT === "YOUR_FORMSPREE_ENDPOINT_HERE") {
+      status.innerHTML = "Please configure your Formspree endpoint in form-handler.js";
+      status.classList.add("text-red-400");
+      return;
+    }
+
     const requiredFields = form.querySelectorAll("[required]");
     let isValid = true;
     requiredFields.forEach((field) => {
@@ -145,8 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     try {
-      // Using your Formspree endpoint
-      const response = await fetch("https://formspree.io/f/xyzjogbo", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         body: formData,
         headers: {
@@ -177,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (err) {
       console.error(err);
-      status.innerHTML = "Something went wrong!";
+      status.innerHTML = "Unable to submit form. Please check your internet connection and try again.";
       status.classList.add("text-red-400");
     }
 
